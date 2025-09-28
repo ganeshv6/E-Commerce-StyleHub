@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>StyleHub | Modern E-Commerce Demo</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="top-sale-banner">
+    🎉 Get an **extra 20% off** on all Electronics with code **HUB20**! Free shipping over $100.
+  </div>
+
+  <header class="site-header">
+    <div class="brand">
+      <div class="logo">SH</div>
+      <a href="#" class="site-title">StyleHub</a>
+    </div>
+
+    <div class="site-actions">
+      <input id="searchInput" class="search" placeholder="Search for T-shirts, monitors, rings..." aria-label="Search products" />
+      <button id="cartToggle" class="btn btn-icon" title="Open cart" aria-label="Open shopping cart">
+        🛒 Cart (<span id="cartCount">0</span>)
+      </button>
+    </div>
+  </header>
+
+    <section class="hero-slider swiper mySwiper">
+        <div class="swiper-wrapper">
+        <div class="swiper-slide hero-slide slide-1">
+            <div class="slide-content">
+            <h2>Ultimate Comfort Collection 👟</h2>
+            <p>The freshest drops in apparel and shoes for an effortless style upgrade. Starts now.</p>
+            <button class="btn primary primary-white">Shop Apparel</button>
+            </div>
+        </div>
+        <div class="swiper-slide hero-slide slide-2">
+            <div class="slide-content">
+            <h2>Precision Electronics ⚡</h2>
+            <p>High-end gadgets and essential tech for the modern creator. Unbeatable prices.</p>
+            <button class="btn primary primary-white">Shop Electronics</button>
+            </div>
+        </div>
+        <div class="swiper-slide hero-slide slide-3">
+            <div class="slide-content">
+            <h2>Luxury Jewels & Watches ✨</h2>
+            <p>Timeless pieces to define your moment. Handcrafted quality you can trust.</p>
+            <button class="btn primary primary-white">View Accessories</button>
+            </div>
+        </div>
+        </div>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+    </section>
+  <main class="container">
+    <section class="top-row">
+      <div class="section-heading">
+        <h2 class="title-primary">Discover Our Range</h2>
+        <div class="subtitle">Explore high-quality products across all our diverse categories.</div>
+      </div>
+
+      <div class="filters" id="categoryChips">
+        </div>
+    </section>
+
+    <section class="product-grid" id="productGrid">
+      </section>
+
+  </main>
+
+  <div id="modalBackdrop" class="modal-backdrop" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true">
+      <div class="big-img" id="modalImageWrap">
+        <img id="modalImage" src="" alt="Product image" />
+      </div>
+      <div class="detail">
+        <button class="modal-close-btn" onclick="closeModal()">✕</button>
+        <div class="product-info-top">
+          <div>
+            <h2 id="modalTitle">Product title</h2>
+            <div id="modalCategory" class="product-category"></div>
+          </div>
+          <div style="text-align:right">
+            <div class="product-price" id="modalPrice">$0</div>
+            <div class="product-stock" id="modalStock">In stock</div>
+          </div>
+        </div>
+
+        <p id="modalDescription" class="product-description"></p>
+
+        <div class="product-actions-group">
+          <div class="qty">
+            <button id="qtyMinus" class="btn ghost">-</button>
+            <input id="qtyInput" type="number" value="1" min="1" aria-label="Quantity" />
+            <button id="qtyPlus" class="btn ghost">+</button>
+          </div>
+
+          <button id="addToCartBtn" class="btn primary btn-lg">Add to cart</button>
+          <button id="openReviewBtn" class="btn ghost">Reviews</button>
+        </div>
+
+        <div class="reviews" id="modalReviews">
+          </div>
+      </div>
+    </div>
+  </div>
+
+  <aside id="cartPanel" class="cart-panel" aria-hidden="true">
+    <div class="cart-header">
+      <h3>Shopping Cart</h3>
+      <div class="cart-actions-header">
+        <button id="clearCart" class="btn ghost btn-sm">Clear Cart</button>
+        <button id="closeCart" class="btn btn-icon btn-sm" aria-label="Close cart">✕</button>
+      </div>
+    </div>
+
+    <div class="cart-items" id="cartItems">
+      <p id="emptyCartMessage" style="text-align:center;color:var(--muted);margin-top:2rem;">Your cart is empty.</p>
+    </div>
+
+    <div class="cart-summary">
+      <div class="cart-total-row">
+        <div class="total-label">Subtotal</div>
+        <div class="total-amount" id="cartTotal">$0.00</div>
+      </div>
+      <div style="margin-top:.75rem">
+        <button id="checkoutBtn" class="btn primary btn-lg" style="width:100%">Proceed to Checkout</button>
+      </div>
+    </div>
+
+    <div id="checkoutSection" class="checkout-area">
+      <h4>Shipping Details</h4>
+      <form id="checkoutForm" class="checkout-form">
+        <input id="custName" class="input" placeholder="Full Name" required />
+        <input id="custEmail" class="input" placeholder="Email Address" type="email" required />
+        <input id="custAddress" class="input" placeholder="Shipping Address" required />
+        <button type="submit" class="btn primary btn-lg">Place Order (Demo)</button>
+      </form>
+    </div>
+  </aside>
+
+  <footer>
+    <div class="container footer-content">
+      <small>© 2024 StyleHub Demo. Built with modern web techniques. | All images from Unsplash. | Local-only checkout.</small>
+    </div>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
