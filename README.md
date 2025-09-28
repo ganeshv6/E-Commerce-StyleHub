@@ -1,4 +1,4 @@
-<b>SttyleHub – Lightweight E-Commerce Product Showcase</b><br>
+SttyleHub – Lightweight E-Commerce Product Showcase<br>
 Project Overview<br><br>
 
     SmartShop is a frontend-only product showcase system designed for small businesses to display their products online without requiring a backend.<br>
